@@ -1,0 +1,193 @@
+<div>
+  <div>
+    <h1>
+      WELCOME TO COMIC STRIP
+    </h1>
+  </div>
+</div>
+
+   <form action="/insert_comic" method="post">
+
+        <div>
+          <label for="comic">
+            Comic
+          </label>
+          <input id="comic" type="file" name="comic" placeholder="Enter a URL for the comic...">
+
+          <label for="caption_box">
+            Caption
+          </label>
+          <input type="hidden" id="owner_id_box" name="query_owner_id">
+          <textarea id="caption_box" name="query_caption" rows="3" placeholder="Enter a caption for the comic..."></textarea>
+          <button>
+            Add Comic
+          </button>
+        </div>
+      </form>
+
+    <form action="/insert_comic" method="post">
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title">
+      </div>
+
+      <div>
+        <label for="owner_id_box">
+          Owner
+        </label>
+
+        <input type="text" id="owner_id_box" name="query_owner_id">
+      </div>
+
+      <div>
+        <label for="photo_box">
+          Photo
+        </label>
+
+        <input type="text" id="photo_box" name="query_photo">
+      </div>
+
+      <div>
+        <label for="caption_box">
+          Caption
+        </label>
+
+        <input type="text" id="caption_box" name="query_caption">
+      </div>
+
+      <div>
+        <label for="likes_count_box">
+          Likes count
+        </label>
+
+        <input type="text" id="likes_count_box" name="query_likes_count">
+      </div>
+
+      <div>
+        <label for="comments_count_box">
+          Comments count
+        </label>
+
+        <input type="text" id="comments_count_box" name="query_comments_count">
+      </div>
+
+      <div>
+        <label for="shares_count_box">
+          Shares count
+        </label>
+
+        <input type="text" id="shares_count_box" name="query_shares_count">
+      </div>
+
+      <button>
+        Create comic
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Owner
+        </th>
+
+        <th>
+          Photo
+        </th>
+
+        <th>
+          Caption
+        </th>
+
+        <th>
+          Likes count
+        </th>
+
+        <th>
+          Comments count
+        </th>
+
+        <th>
+          Shares count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_comics.each do |a_comic| %>
+      <tr>
+        <td>
+          <%= a_comic.id %>
+        </td>
+
+        <td>
+          <%= a_comic.title %>
+        </td>
+
+        <td>
+          <%= a_comic.owner_id %>
+        </td>
+
+        <td>
+          <%= a_comic.photo %>
+        </td>
+
+        <td>
+          <%= a_comic.caption %>
+        </td>
+
+        <td>
+          <%= a_comic.likes_count %>
+        </td>
+
+        <td>
+          <%= a_comic.comments_count %>
+        </td>
+
+        <td>
+          <%= a_comic.shares_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_comic.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_comic.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/comics/<%= a_comic.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

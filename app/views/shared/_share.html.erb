@@ -1,0 +1,56 @@
+<%= link_to "Share", "#", class: "share-button" %>
+
+<script>
+// TODO: move this to share.js?
+// JavaScript code goes here
+document.querySelector('.share-button').addEventListener('click', function() {
+  if (navigator.share) {
+    // TODO: test on iOS
+    navigator.share({
+      title: 'Comic',
+      text: 'Check out this link!',
+      url: window.location.href
+    })
+    .then(() => console.log('Shared successfully!'))
+    .catch(error => console.log('Error sharing:', error));
+  } else if (navigator.userAgent.match(/android/i)) {
+    // TODO: Fallback for Android users
+    
+  } else {
+    // TODO: Fallback for web users
+    copyToClipboard(window.location.href);
+  }
+});
+
+function copyToClipboard(text) {
+  // Create a temporary textarea element
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  document.body.appendChild(textarea);
+  
+  // Select and copy the text
+  textarea.select();
+  document.execCommand('copy');
+
+  // Clean up
+  document.body.removeChild(textarea);
+
+  // Show a message to the user
+  const message = document.createElement('div');
+  message.textContent = 'URL copied to clipboard!';
+  message.style.cssText = `
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    z-index: 9999;
+  `;
+  document.body.appendChild(message);
+  setTimeout(() => document.body.removeChild(message), 2000);
+}
+
+</script>

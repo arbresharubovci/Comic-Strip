@@ -1,0 +1,162 @@
+<div>
+  <div>
+    <h1>
+      Comic #<%= @the_comic.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/comics">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_comic/<%= @the_comic.id %>">
+          Delete comic
+        </a>
+      </div>
+      <%= render "shared/share" %>
+    </div>
+
+    <dl>
+      <dt>
+        Title
+      </dt>
+      <dd>
+        <%= @the_comic.title %>
+      </dd>
+
+      <dt>
+        Owner
+      </dt>
+      <dd>
+        <%= @the_comic.owner_id %>
+      </dd>
+
+      <dt>
+        Photo
+      </dt>
+      <dd>
+        <%= @the_comic.photo %>
+      </dd>
+
+      <dt>
+        Caption
+      </dt>
+      <dd>
+        <%= @the_comic.caption %>
+      </dd>
+
+      <dt>
+        Likes count
+      </dt>
+      <dd>
+        <%= @the_comic.likes_count %>
+      </dd>
+
+      <dt>
+        Comments count
+      </dt>
+      <dd>
+        <%= @the_comic.comments_count %>
+      </dd>
+
+      <dt>
+        Shares count
+      </dt>
+      <dd>
+        <%= @the_comic.shares_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_comic.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_comic.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit comic
+    </h2>
+
+    <form action="/modify_comic/<%= @the_comic.id %>"  method="post" >
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title" value="<%= @the_comic.title %>">
+      </div>
+
+      <div>
+        <label for="owner_id_box">
+          Owner
+        </label>
+
+        <input type="text" id="owner_id_box" name="query_owner_id" value="<%= @the_comic.owner_id %>">
+      </div>
+
+      <div>
+        <label for="photo_box">
+          Photo
+        </label>
+
+        <input type="text" id="photo_box" name="query_photo" value="<%= @the_comic.photo %>">
+      </div>
+
+      <div>
+        <label for="caption_box">
+          Caption
+        </label>
+
+        <input type="text" id="caption_box" name="query_caption" value="<%= @the_comic.caption %>">
+      </div>
+
+      <div>
+        <label for="likes_count_box">
+          Likes count
+        </label>
+
+        <input type="text" id="likes_count_box" name="query_likes_count" value="<%= @the_comic.likes_count %>">
+      </div>
+
+      <div>
+        <label for="comments_count_box">
+          Comments count
+        </label>
+
+        <input type="text" id="comments_count_box" name="query_comments_count" value="<%= @the_comic.comments_count %>">
+      </div>
+
+      <div>
+        <label for="shares_count_box">
+          Shares count
+        </label>
+
+        <input type="text" id="shares_count_box" name="query_shares_count" value="<%= @the_comic.shares_count %>">
+      </div>
+
+      <button>
+        Update comic
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

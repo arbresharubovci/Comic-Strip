@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all shares
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new share
+    </h2>
+
+    <form action="/insert_share" method="post">
+      <div>
+        <label for="comic_id_box">
+          Comic
+        </label>
+
+        <input type="text" id="comic_id_box" name="query_comic_id">
+      </div>
+
+      <div>
+        <label for="ower_id_box">
+          Ower
+        </label>
+
+        <input type="text" id="ower_id_box" name="query_ower_id">
+      </div>
+
+      <button>
+        Create share
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Comic
+        </th>
+
+        <th>
+          Ower
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_shares.each do |a_share| %>
+      <tr>
+        <td>
+          <%= a_share.id %>
+        </td>
+
+        <td>
+          <%= a_share.comic_id %>
+        </td>
+
+        <td>
+          <%= a_share.ower_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_share.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_share.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/shares/<%= a_share.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

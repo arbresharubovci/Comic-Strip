@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Share #<%= @the_share.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/shares">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_share/<%= @the_share.id %>">
+          Delete share
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Comic
+      </dt>
+      <dd>
+        <%= @the_share.comic_id %>
+      </dd>
+
+      <dt>
+        Ower
+      </dt>
+      <dd>
+        <%= @the_share.ower_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_share.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_share.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit share
+    </h2>
+
+    <form action="/modify_share/<%= @the_share.id %>"  method="post" >
+      <div>
+        <label for="comic_id_box">
+          Comic
+        </label>
+
+        <input type="text" id="comic_id_box" name="query_comic_id" value="<%= @the_share.comic_id %>">
+      </div>
+
+      <div>
+        <label for="ower_id_box">
+          Ower
+        </label>
+
+        <input type="text" id="ower_id_box" name="query_ower_id" value="<%= @the_share.ower_id %>">
+      </div>
+
+      <button>
+        Update share
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
