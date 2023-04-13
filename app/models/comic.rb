@@ -4,7 +4,6 @@
 #
 #  id             :integer          not null, primary key
 #  caption        :string
-#  comic          :string
 #  comments_count :string
 #  likes_count    :string
 #  photo          :string
@@ -15,4 +14,10 @@
 #  owner_id       :integer
 #
 class Comic < ApplicationRecord
+  
+  mount_uploader :photo, PhotoUploader
+  
+  # belongs_to(:user, { :class_name => "User", :foreign_key => "owner_id", :counter_cache => true })
+  
+  # has_many(:shares, { :class_name => "Share", :foreign_key => "comic_id", :dependent => :destroy })
 end

@@ -6,13 +6,13 @@
   </div>
 </div>
 
-   <form action="/insert_comic" method="post">
+   <form action="/insert_comic" method="post" enctype="multipart/form-data">
 
         <div>
-          <label for="comic">
+          <label for="photo-input">
             Comic
           </label>
-          <input id="comic" type="file" name="comic" placeholder="Enter a URL for the comic...">
+          <input id="photo-input" type="file" name="photo" placeholder="Enter a URL for the comic...">
 
           <label for="caption_box">
             Caption
@@ -153,7 +153,7 @@
         </td>
 
         <td>
-          <%= a_comic.photo %>
+          <img src="<%= a_comic.photo %>" class="img-responsive">
         </td>
 
         <td>

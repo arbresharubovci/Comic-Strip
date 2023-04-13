@@ -21,7 +21,7 @@ class ComicsController < ApplicationController
     the_comic = Comic.new
     #the_comic.title = params.fetch("query_title")
     the_comic.owner_id = params.fetch("query_owner_id")
-    #the_comic.photo = params.fetch("query_photo")
+    the_comic.photo = params.fetch("photo")
     the_comic.caption = params.fetch("query_caption")
     #the_comic.likes_count = params.fetch("query_likes_count")
     #the_comic.comments_count = params.fetch("query_comments_count")
@@ -49,7 +49,7 @@ class ComicsController < ApplicationController
 
     if the_comic.valid?
       the_comic.save
-      redirect_to("/comics/#{the_comic.id}", { :notice => "Comic updated successfully."} )
+      redirect_to("/comics/#{the_comic.id}", { :notice => "Comic updated successfully." })
     else
       redirect_to("/comics/#{the_comic.id}", { :alert => the_comic.errors.full_messages.to_sentence })
     end
@@ -61,6 +61,6 @@ class ComicsController < ApplicationController
 
     the_comic.destroy
 
-    redirect_to("/comics", { :notice => "Comic deleted successfully."} )
+    redirect_to("/comics", { :notice => "Comic deleted successfully." })
   end
 end
