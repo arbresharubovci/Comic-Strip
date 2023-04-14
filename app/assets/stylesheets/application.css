@@ -12,3 +12,29 @@
  *
  *= require_self
  */
+
+ @font-face {
+  font-family: 'Poppins';
+  src: url('/assets/fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/assets/fonts/Poppins-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+.sketch-text {
+  font-family: 'Cabin Sketch', cursive;
+  color: #042E41;
+}
+
+
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+}

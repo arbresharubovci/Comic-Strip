@@ -15,6 +15,7 @@ gem 'sassc-rails'
 gem 'faker'
 gem "carrierwave"
 gem "cloudinary"
+gem 'mini_magick'
 
 group :development do
   gem 'htmlbeautifier'

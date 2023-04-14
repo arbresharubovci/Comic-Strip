@@ -1,8 +1,15 @@
 <div>
   <div>
-    <h1>
-      WELCOME TO COMIC STRIP
-    </h1>
+  
+  <%= image_tag "coffe.jpg", size: "200x200" %>
+
+   
+    <p>
+      WELCOME TO
+    </p>
+
+    <p class="sketch-text" , >COMIC STRIP</p>
+    
   </div>
 </div>
 
@@ -72,7 +79,9 @@
           <%= a_comic.shares_count %>
         </td>
 
-      
+       </div>
+       <%= render "shared/share" %>
+       </div>
 
         <td>
           <a href="/comics/<%= a_comic.id %>">

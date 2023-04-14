@@ -403,6 +403,7 @@ DEPENDENCIES
   http
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  mini_magick
   nokogiri (>= 1.10.8)
   pg
   pry-rails
