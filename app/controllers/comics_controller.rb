@@ -3,6 +3,10 @@ def welcome
   render({ :template => "comics/welcome.html.erb" })
 end
 
+def account
+  render({ :template => "comics/account.html.erb" })
+end
+
 
   def index
     matching_comics = Comic.all

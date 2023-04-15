@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  get("/home", { :controller => "comics", :action => "welcome" }) 
+  get("/", { :controller => "comics", :action => "welcome" }) 
  
+  get("/account", { :controller => "comics", :action => "account" }) 
 
   # Routes for the Share resource:
 
