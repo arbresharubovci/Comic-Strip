@@ -1,4 +1,9 @@
 class ComicsController < ApplicationController
+def welcome
+  render({ :template => "comics/welcome.html.erb" })
+end
+
+
   def index
     matching_comics = Comic.all
 

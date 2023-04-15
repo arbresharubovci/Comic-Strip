@@ -1,33 +1,23 @@
-<div>
+ <div>
   <div>
-  
-  <%= image_tag "coffe.jpg", size: "200x300" %>
-
-   
-    <p>
-      WELCOME TO
-    </p>
-
-    <p class="sketch-text" , >COMIC STRIP</p>
-    
+    <%= image_tag "coffe.jpg", size: "200x300" %>
   </div>
-</div>
+    
+    <a href="/user_sign_up">
+      <button>Sign up</button>
+    </a>
+          
+    <h5> Already have an account?</h5>
 
-
-          <a href="/user_sign_in">
-            <button>Sign in</button>
-          </a>
+    <a href="/user_sign_in">
+    <button>Sign in</button>
+    </a>
+</div>      
         
-       <p> Already have an account?</p>
+<hr>
 
-          <a href="/user_sign_up">
-            <button>Sign up</button>
-          </a>
-       
 
-        <hr>
-
-   <form action="/insert_comic" method="post" enctype="multipart/form-data">
+<form action="/insert_comic" method="post" enctype="multipart/form-data">
 
         <div>
           <label for="photo-input">
@@ -107,5 +97,3 @@
  
   </div>
 </div>
-
-<hr>
