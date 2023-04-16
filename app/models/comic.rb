@@ -17,7 +17,7 @@ class Comic < ApplicationRecord
   
   mount_uploader :photo, PhotoUploader
   
-  # belongs_to(:user, { :class_name => "User", :foreign_key => "owner_id", :counter_cache => true })
+   belongs_to(:user, { :class_name => "User", :foreign_key => "owner_id", :counter_cache => true })
   
-  # has_many(:shares, { :class_name => "Share", :foreign_key => "comic_id", :dependent => :destroy })
+   has_many(:shares, { :class_name => "Share", :foreign_key => "comic_id", :dependent => :destroy })
 end

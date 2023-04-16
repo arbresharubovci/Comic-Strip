@@ -28,14 +28,13 @@ end
 
   def create
     the_comic = Comic.new
-    #the_comic.title = params.fetch("query_title")
-    the_comic.owner_id = params.fetch("query_owner_id")
+    the_comic.owner_id = @current_user.id
     the_comic.photo = params.fetch("photo")
     the_comic.caption = params.fetch("query_caption")
-    #the_comic.likes_count = params.fetch("query_likes_count")
-    #the_comic.comments_count = params.fetch("query_comments_count")
-    #the_comic.shares_count = params.fetch("query_shares_count")
-
+    the_comic.likes_count = 0
+    the_comic.comments_count = 0
+    #the_comic.shares_count = 0
+    
     if the_comic.valid?
       the_comic.save
       redirect_to("/comics", { :notice => "Comic created successfully." })

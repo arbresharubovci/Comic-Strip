@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   # Routes for the Share resource:
 
-  get("/", { :controller => "comics", :action => "index" }) 
+  get("/home", { :controller => "comics", :action => "index" }) 
 
   # CREATE
   post("/insert_share", { :controller => "shares", :action => "create" })

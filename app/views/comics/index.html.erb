@@ -1,5 +1,6 @@
 <div>
-<form action="/insert_comic" method="post" enctype="multipart/form-data">
+   <% if @current_user != nil %>
+   <form action="/insert_comic" method="post" enctype="multipart/form-data">
 
         <div>
           <label for="photo-input">
@@ -16,16 +17,15 @@
             Add Comic
           </button>
         </div>
-      </form>
+    </form>
+    <% end %>
 </div>
 
   
 <hr>
 <div>
-  <div>
+  <div class="table">
    
-    
-
         <th>
         </th>
       </tr>
@@ -45,7 +45,7 @@
         </td>
 
         <td>
-          <img src="<%= a_comic.photo %>" class="img-responsive">
+        <img src="<%= a_comic.photo %>" class="img-responsive" width="30%">
         </td>
 
         <td>
