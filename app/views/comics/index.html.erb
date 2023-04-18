@@ -64,12 +64,21 @@
               <a href="/comics/<%= comic.id %>" class="btn btn-outline-primary">
                 <%= comic.comments_count %> comments
               </a>
+            </div>
 
+            <div class="col" class="btn btn-outline-primary">
+             <%= render "shared/share" %>
             </div>
 
             <div class="col">
               <a href="/comics/<%= comic.id %>" class="btn btn-outline-primary">
-                Show details
+                Edit
+              </a>
+            </div>
+
+             <div class="col">
+              <a href="/delete_comic/<%= comic.id %>" class="btn btn-outline-primary">
+                Delete comic
               </a>
             </div>
           </div>

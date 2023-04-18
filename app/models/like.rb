@@ -9,4 +9,8 @@
 #  photo_id   :integer
 #
 class Like < ApplicationRecord
+
+  belongs_to(:fan, { :required => true, :class_name => "User", :foreign_key => "fan_id" })
+  
+  belongs_to(:comic, { :required => true, :class_name => "Comic", :foreign_key => "photo_id" })
 end
