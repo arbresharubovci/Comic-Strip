@@ -34,15 +34,14 @@
 
   </head>
   <body>
-
-    <div>
-      <%= alert %>
-      <%= notice %>
-    </div>
-
     <%= render "shared/navbar" %>
 
     <div class="container">
+      <div>
+        <%= alert %>
+        <%= notice %>
+      </div>
+
       <%= yield %>
     </div>
   </body>
