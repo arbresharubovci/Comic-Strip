@@ -39,7 +39,9 @@
   <div class="row mb-5">
     <div class="offset-md-3 col-md-6">
       <div class="card">
-        <img src="<%= comic.photo %>" class="card-img-top">
+        <img src="<%= cl_image_path("comic.photo", :cloud_name => "dtnvreycq")%>" class="card-img-top">
+     
+
         <div class="card-body">
           <p class="card-text">
             <%= comic.caption %>
@@ -80,20 +82,6 @@
         </div>
       </div>
     </div>
-  </div>
+    </div>
+  
 <% end %>
-
-
-<form action="/insert_comment" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="0LuMAeZFR2qoojc-RSGvJ4KDpPxg-JhWD-cROM3GWJEBm4BoRRcVeZJVRRdXlvbOC3xyvylsXvmbbtmxgavRsg">
-
-  <input type="hidden" value="1351995" name="photo_id" id="photo_id">
-
-  <div class="form-group">
-    <label class="sr-only" for="comment_body">Body</label>
-    <textarea class="form-control" name="comment[body]" id="comment_body"></textarea>
-  </div>
-
-  <div class="actions">
-    <input type="submit" name="commit" value="Create Comment" class="btn btn-outline-secondary btn-block" data-disable-with="Create Comment">
-  </div>
-</form>

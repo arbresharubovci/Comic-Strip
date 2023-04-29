@@ -1,4 +1,6 @@
 class ComicsController < ApplicationController
+
+  
 def welcome
   render({ :template => "comics/welcome.html.erb" })
 end
@@ -6,6 +8,8 @@ end
 def account
   render({ :template => "comics/account.html.erb" })
 end
+
+
 
 
   def index
