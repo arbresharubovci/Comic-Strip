@@ -1,4 +1,6 @@
 class ComicsController < ApplicationController
+
+  
 def welcome
   render({ :template => "comics/welcome.html.erb" })
 end
@@ -6,6 +8,8 @@ end
 def account
   render({ :template => "comics/account.html.erb" })
 end
+
+
 
 
   def index
@@ -46,7 +50,6 @@ end
   def update
     the_id = params.fetch("path_id")
     the_comic = Comic.where({ :id => the_id }).at(0)
-
     the_comic.title = params.fetch("query_title")
     the_comic.owner_id = params.fetch("query_owner_id")
     the_comic.photo = params.fetch("query_photo")

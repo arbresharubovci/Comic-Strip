@@ -1,99 +1,53 @@
-<div>
-  <div>
-    <h1>
-      Comic #<%= @the_comic.id %> details
-    </h1>
 
-    <div>
-      <div>
-        <a href="/comics">
-          Go back
-        </a>
-      </div>
+  <div class="row mb-5">
+    <div class="offset-md-3 col-md-6">
+      <div class="card">
+        <img src="<%= @the_comic.photo %>" class="card-img-top">
+        <div class="card-body">
+          <p class="card-text">
+            <%=  @the_comic.caption %>
+          </p>
 
-      <div>
-        <a href="/delete_comic/<%= @the_comic.id %>">
-          Delete comic
-        </a>
+          <p class="text-muted">
+            <%= time_ago_in_words( @the_comic.created_at) %> ago
+          </p>
+        </div>
+
+        <div class="card-footer">
+          <div class="row py-2 d-flex align-items-center text-center">
+            <div class="col" >
+
+            </div>
+          </div>
+        </div>
       </div>
-      <%= render "shared/share" %>
     </div>
-
-    <dl>
-      <dt>
-        Title
-      </dt>
-      <dd>
-        <%= @the_comic.title %>
-      </dd>
-
-      <dt>
-        Owner
-      </dt>
-      <dd>
-        <%= @the_comic.owner_id %>
-      </dd>
-
-      <dt>
-        Photo
-      </dt>
-      <dd>
-        <%= @the_comic.photo %>
-      </dd>
-
-      <dt>
-        Caption
-      </dt>
-      <dd>
-        <%= @the_comic.caption %>
-      </dd>
-
-      <dt>
-        Likes count
-      </dt>
-      <dd>
-        <%= @the_comic.likes_count %>
-      </dd>
-
-      <dt>
-        Comments count
-      </dt>
-      <dd>
-        <%= @the_comic.comments_count %>
-      </dd>
-
-      <dt>
-        Shares count
-      </dt>
-      <dd>
-        <%= @the_comic.shares_count %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_comic.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_comic.updated_at) %> ago
-      </dd>
-    </dl>
   </div>
-</div>
+
+            <div class="col">
+              <a href="/comics/" class="btn btn-outline-primary">
+                Go back
+              </a>
+            </div>
+
+
+            <div class="col">
+              <a href="/delete_comic/<%= @the_comic.id %>" class="btn btn-outline-primary">
+                Delete comic
+              </a>
+            </div>
+
+  
+   
 
 <hr>
 
 
 <div>
   <div>
-    <h2>
-      Edit comic
-    </h2>
+    <p>
+      Leave a comment with your thoughts
+    </p>
 
     <form action="/modify_comic/<%= @the_comic.id %>"  method="post" >
       <div>
@@ -153,7 +107,7 @@
       </div>
 
       <button>
-        Update comic
+        Comment
       </button>
     </form>
   </div>
