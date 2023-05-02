@@ -1,80 +1,87 @@
-<div>
-   <% if @current_user != nil %>
-   <form action="/insert_comic" method="post" enctype="multipart/form-data">
+<% if @current_user != nil %>
+  <div class="row">
+    <div class="offset-md-3 col-md-6">
 
-        <div>
-          <label for="photo-input">
-            Comic
-          </label>
-          <input id="photo-input" type="file" name="photo" placeholder="Enter a URL for the comic...">
+      <form action="/insert_comic" method="post" enctype="multipart/form-data">
 
-          <label for="caption_box">
-            Caption
+        <input type="hidden" id="owner_id_box" name="query_owner_id" value="<%= @current_user.id %>">
+
+        <div class="mb-3">
+          <label for="photo-input" class="form-label">
           </label>
-          <input type="hidden" id="owner_id_box" name="query_owner_id">
-          <textarea id="caption_box" name="query_caption" rows="3" placeholder="Enter a caption for the comic..."></textarea>
-          <button>
+
+          <input id="photo-input" type="file" name="photo" placeholder="Enter a URL for the comic..." class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label for="caption_box" class="form-label">
+          </label>
+
+          <textarea id="caption_box" name="query_caption" rows="3" placeholder="Add caption..."  class="form-control"></textarea>
+        </div>
+
+        <div class="d-grid">
+          <button class="btn btn-outline-primary">
+
+            <i class="fa-solid fa-camera fa-fw"></i>
+
             Add Comic
           </button>
         </div>
-    </form>
-    <% end %>
-</div>
-
-  
-<hr>
-<div>
-  <div class="table">
-   
-        <th>
-        </th>
-      </tr>
-
-      <% @list_of_comics.each do |a_comic| %>
-      <tr>
-        <td>
-          <%= a_comic.id %>
-        </td>
-
-        <td>
-          <%= a_comic.title %>
-        </td>
-
-        <td>
-          <%= a_comic.owner_id %>
-        </td>
-
-        <td>
-        <img src="<%= a_comic.photo %>" class="img-responsive" width="30%">
-        </td>
-
-        <td>
-          <%= a_comic.caption %>
-        </td>
-
-        <td>
-          <%= a_comic.likes_count %>
-        </td>
-
-        <td>
-          <%= a_comic.comments_count %>
-        </td>
-
-        <td>
-          <%= a_comic.shares_count %>
-        </td>
-
-       </div>
-       <%= render "shared/share" %>
-       </div>
-
-        <td>
-          <a href="/comics/<%= a_comic.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
- 
+      </form>
+    </div>
   </div>
-</div>
+<% end %>
+
+<hr>
+
+<% @list_of_comics.each do |comic| %>
+  <div class="row mb-5">
+    <div class="offset-md-3 col-md-6">
+      <div class="card">
+        <img src="<%= cl_image_path("comic.photo", :cloud_name => "dtnvreycq")%>" class="card-img-top">
+     
+
+        <div class="card-body">
+          <p class="card-text">
+            <%= comic.caption %>
+          </p>
+
+          <p class="text-muted">
+            <%= time_ago_in_words(comic.created_at) %> ago
+          </p>
+        </div>
+
+        <div class="card-footer">
+          <div class="row py-2 d-flex align-items-center text-center">
+            <div class="col">
+              <a href="/comics/<%= comic.id %>" class="btn btn-outline-primary">
+                <%= comic.likes_count %> 
+                <i class="fa-solid fa-thumbs-up"></i>
+              </a>
+            </div>
+
+            <div class="col">
+              <a href="/comics/<%= comic.id %>" class="btn btn-outline-primary">
+                <%= comic.comments_count %>
+                <i class="fa-solid fa-message"></i>
+              </a>
+            </div>
+
+            <div class="col" class="btn btn-outline-primary">
+              <i class="fa-solid fa-share"></i>
+             <%= render "shared/share" %>
+            </div>
+
+            <div class="col">
+              <a href="/comics/<%= comic.id %>" class="btn btn-outline-primary">
+              <i class="fa-solid fa-pen-to-square"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  
+<% end %>
